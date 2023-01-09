@@ -92,6 +92,7 @@ Navigate to the Azure portal and get the connectionstring for the storage accoun
 ***AZURE_BLOB_SAS_TOKEN***
 
 Navigate to the Azure portal and the storage account in your resourcegroup. Go to Containers --> "apidefinitions" --> Shared access tokens. 
+Select "Read", "Create", "Write" options in the "Permissions" section.
 Change the Expiry date to something far away in the future. 
 Click "Generate SAS token and URL"
 Copy the "Blob SAS token" and save it as a GitHub secret.
