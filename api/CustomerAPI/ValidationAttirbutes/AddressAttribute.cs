@@ -27,8 +27,8 @@ namespace CustomerAPI.ValidationAttirbutes
 
             var country = customerCreateDto.Address.Country.ToLower();
 
-            if (country != "sweden" && country != "denmark" && country != "norway" && country != "finland")
-                return new ValidationResult("Country should be among (Sweden, Denmark, Norway, Finland)", new[] { "CustomerCreateDto" });
+            if (country != "sweden" && country != "denmark" && country != "norway" && country != "finland" && country != "iceland")
+                return new ValidationResult("Country should be among (Sweden, Denmark, Norway, Finland, Iceland)", new[] { "CustomerCreateDto" });
 
             var phoneNumber = customerCreateDto.PhoneNumber;
 
