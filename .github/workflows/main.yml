@@ -8,15 +8,15 @@ on: [workflow_dispatch]
 
 name: Customer API
 
-on:
-  workflow_call:
-    inputs:
-      environment:
-        type: string
-        description: 'Name of the Environment'
-      name:
-        type: string
-        description: 'Suffix to use for naming resources'
+# on:
+#   workflow_call:
+#     inputs:
+#       environment:
+#         type: string
+#         description: 'Name of the Environment'
+#       name:
+#         type: string
+#         description: 'Suffix to use for naming resources'
 
 jobs:
   build-and-deploy:
