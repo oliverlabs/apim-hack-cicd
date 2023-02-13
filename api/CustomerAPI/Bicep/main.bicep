@@ -12,7 +12,7 @@ module customerapi 'final-customerapi.bicep' = {
   params: {
     db_connectionstring: kv.getSecret('dbconnection')
     dockerimagetag: dockerimagetag
-    name:name
+    name: name
     apidefinitionurl: apidefinitionurl
     location: location
     
