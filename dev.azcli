@@ -1,0 +1,21 @@
+# Resource Group: rg-oliverlabs-apimhack
+
+az deployment group create -g rg-oliverlabs-apimhack -f infrastructure/main.bicep -p name=oliverlabs sqlpwd="RB0k4G#pBZXV"
+
+# Create a service principal for github deployment
+
+$servicePrincipalName="oliver-delete"
+$roleName="Owner"
+$subscriptionID=$(az account show --query id -o tsv)
+# Verify the ID of the active subscription
+echo "Using subscription ID $subscriptionID"
+$resourceGroup="rg-oliverlabs-apimhack"
+
+echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes /subscriptions/$subscriptionID/resourceGroups/$resourceGroup"
+az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionID/resourceGroups/$resourceGroup
+
+
+az storage blob upload -f .\swapi-swagger.json --account-name stgoliverlabshack -c swapi
+
+
+az deployment group create -g rg-oliverlabs-apimhack -f infrastructure/swapi.bicep -p name=oliverlabs
